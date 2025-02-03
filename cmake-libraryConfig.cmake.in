@@ -1,0 +1,8 @@
+@PACKAGE_INIT@
+
+# Optionally, set additional variables if needed.
+# For example, if you had an include directory:
+# set(cmake-library_INCLUDE_DIR "@PACKAGE_SOURCE_DIR@/include")
+
+# Include the module that defines your functions.
+include("${CMAKE_CURRENT_LIST_DIR}/cmake-library.cmake")

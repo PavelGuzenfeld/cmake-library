@@ -1,4 +1,3 @@
-
 # Function to apply sanitizer flags to a target
 function(enable_sanitizers target)
         if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
