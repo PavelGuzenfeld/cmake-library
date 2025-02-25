@@ -47,11 +47,3 @@ function(set_debug_options target)
         target_link_options(${target} PRIVATE /LTCG)
     endif()
 endfunction()
-
-include(FetchContent)
-
-FetchContent_Declare(
-  CPM
-  GIT_REPOSITORY https://github.com/cpm-cmake/CPM.cmake.git
-  GIT_TAG v0.40.5 # Check for the latest version
-)
