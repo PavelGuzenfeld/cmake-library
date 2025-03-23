@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
 project(cmake-library)
 
+# Handle "Manually-specified variables were not used by the project" warning.
+unset(CATKIN_INSTALL_INTO_PREFIX_ROOT)
+
 # Include helper functions for package configuration.
 include(CMakePackageConfigHelpers)
 
@@ -15,7 +18,7 @@ configure_package_config_file(
 
 # Install the module and the generated configuration files.
 install(
-  FILES 
+  FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake-library.cmake"
     "${CMAKE_CURRENT_BINARY_DIR}/cmake-libraryConfig.cmake"
   DESTINATION lib/cmake/cmake-library
