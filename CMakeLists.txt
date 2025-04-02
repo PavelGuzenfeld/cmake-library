@@ -23,3 +23,7 @@ install(
     "${CMAKE_CURRENT_BINARY_DIR}/cmake-libraryConfig.cmake"
   DESTINATION lib/cmake/cmake-library
 )
+
+# Handle "Manually-specified variables were not used by the project" warning.
+unset(CATKIN_INSTALL_INTO_PREFIX_ROOT)
+unset(CATKIN_SYMLINK_INSTALL)
