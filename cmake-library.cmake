@@ -1,11 +1,20 @@
 # Function to apply sanitizer flags to a target
 function(enable_sanitizers target)
         if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-            target_compile_options(${target} PRIVATE -fsanitize=address,undefined)
-            target_link_options(${target} PRIVATE -fsanitize=address,undefined)
+            target_compile_options(${target} PRIVATE -fsanitize=address,undefined,signed-integer-overflow,null,leak)
+            target_link_options(${target} PRIVATE -fsanitize=address,undefined,signed-integer-overflow,null,leak)
         elseif(MSVC)
             # Add MSVC equivalent if necessary
         endif()
+endfunction()
+
+function(enable_sanitizer_thread target)
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+        target_compile_options(${target} PRIVATE -fsanitize=thread)
+        target_link_options(${target} PRIVATE -fsanitize=thread)
+    elseif(MSVC)
+        # Add MSVC equivalent if necessary
+    endif()
 endfunction()
 
 # Function to apply common compile Warnings and Errors
